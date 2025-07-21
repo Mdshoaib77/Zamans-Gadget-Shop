@@ -40,6 +40,55 @@
 //   ]
 // }
 // 
+
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "server.js",
+//       "use": "@vercel/node",
+//       "config": {
+//         "includeFiles": [
+//           "ZammansGadget/frontend/dist/**"
+//         ]
+//       }
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "handle": "filesystem"
+//     },
+//     {
+//       "src": "/(.*)",
+//       "dest": "server.js"
+//     }
+//   ]
+// }
+
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "server.js",
+//       "use": "@vercel/node",
+//       "config": {
+//         "includeFiles": [
+//           "ZammansGadget/frontend/dist/**"
+//         ]
+//       }
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "handle": "filesystem"
+//     },
+//     {
+//       "src": "/(.*)",
+//       "dest": "server.js"
+//     }
+//   ]
+// }
+
 {
   "version": 2,
   "builds": [
@@ -48,7 +97,7 @@
       "use": "@vercel/node",
       "config": {
         "includeFiles": [
-          "ZammansGadget/frontend/dist/**"
+          "frontend/dist/**"
         ]
       }
     }

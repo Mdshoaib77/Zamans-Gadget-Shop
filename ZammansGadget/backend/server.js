@@ -166,24 +166,123 @@
 // app.listen(port, () => console.log(`Server started on PORT : ${port}`));
 
 // export default app;
+// import express from 'express';
+// import cors from 'cors';
+// import 'dotenv/config';  // Loads environment variables from .env file
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+
+// import connectDB from './config/mongodb.js';  // Database connection
+// import connectCloudinary from './config/cloudinary.js';  // Cloudinary connection
+// import userRouter from './routes/userRoute.js';  // User route import
+// import productRouter from './routes/productRoute.js';  // Product route import
+// import cartRouter from './routes/cartRoute.js';  // Cart route import
+// import orderRouter from './routes/orderRoute.js';  // Order route import
+
+// // App Config
+// const app = express();
+// const port = process.env.PORT || 4000;
+
+// // Support ES Module __dirname
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// // Connect to Database & Cloudinary
+// connectDB();
+// connectCloudinary();
+
+// // Middleware
+// app.use(express.json());
+// app.use(cors());
+
+// // API Routes
+// app.use('/api/user', userRouter);
+// app.use('/api/product', productRouter);
+// app.use('/api/cart', cartRouter);
+// app.use('/api/order', orderRouter);
+
+// // Serve frontend static files from frontend/dist/
+// app.use(express.static(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist')));
+
+// // Fallback for frontend routes (SPA fix for Vercel)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist', 'index.html'));
+// });
+
+// // Global error handler
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json({ success: false, message: 'Something went wrong!' });
+// });
+
+// // Start server
+// app.listen(port, () => console.log(`Server started on PORT : ${port}`));
+
+// export default app;
+
+// import express from 'express';
+// import cors from 'cors';
+// import 'dotenv/config';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+
+// import connectDB from './config/mongodb.js';
+// import connectCloudinary from './config/cloudinary.js';
+// import userRouter from './routes/userRoute.js';
+// import productRouter from './routes/productRoute.js';
+// import cartRouter from './routes/cartRoute.js';
+// import orderRouter from './routes/orderRoute.js';
+
+// const app = express();
+// const port = process.env.PORT || 4000;
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// connectDB();
+// connectCloudinary();
+
+// app.use(express.json());
+// app.use(cors());
+
+// app.use('/api/user', userRouter);
+// app.use('/api/product', productRouter);
+// app.use('/api/cart', cartRouter);
+// app.use('/api/order', orderRouter);
+
+// // Serve React frontend build static files
+// app.use(express.static(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist')));
+
+// // SPA Fallback route for client side routing
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist', 'index.html'));
+// });
+
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).json({ success: false, message: 'Something went wrong!' });
+// });
+
+// app.listen(port, () => console.log(`Server started on PORT : ${port}`));
+
+// export default app;
+
 import express from 'express';
 import cors from 'cors';
-import 'dotenv/config';  // Loads environment variables from .env file
+import 'dotenv/config';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import connectDB from './config/mongodb.js';  // Database connection
-import connectCloudinary from './config/cloudinary.js';  // Cloudinary connection
-import userRouter from './routes/userRoute.js';  // User route import
-import productRouter from './routes/productRoute.js';  // Product route import
-import cartRouter from './routes/cartRoute.js';  // Cart route import
-import orderRouter from './routes/orderRoute.js';  // Order route import
+import connectDB from './config/mongodb.js';
+import connectCloudinary from './config/cloudinary.js';
+import userRouter from './routes/userRoute.js';
+import productRouter from './routes/productRoute.js';
+import cartRouter from './routes/cartRoute.js';
+import orderRouter from './routes/orderRoute.js';
 
-// App Config
 const app = express();
 const port = process.env.PORT || 4000;
 
-// Support ES Module __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -191,7 +290,7 @@ const __dirname = path.dirname(__filename);
 connectDB();
 connectCloudinary();
 
-// Middleware
+// Middlewares
 app.use(express.json());
 app.use(cors());
 
@@ -201,21 +300,17 @@ app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 
-// Serve frontend static files from frontend/dist/
-app.use(express.static(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist')));
+// Serve static files from frontend/dist/
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
 
-// Fallback for frontend routes (SPA fix for Vercel)
+// Fallback route (SPA fix)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'ZammansGadget', 'frontend', 'dist', 'index.html'));
-});
-
-// Global error handler
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).json({ success: false, message: 'Something went wrong!' });
+  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
 });
 
 // Start server
-app.listen(port, () => console.log(`Server started on PORT : ${port}`));
+app.listen(port, () => {
+  console.log(`Server started on PORT : ${port}`);
+});
 
 export default app;
