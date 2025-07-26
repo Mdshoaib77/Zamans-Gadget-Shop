@@ -30,7 +30,7 @@ const Cart = () => {
   }, [cartItems, products])
 
   return (
-    <div className='border-t pt-14'>
+    <div className='border-t pt-14 mt-11'>
 
       <div className='mb-3 text-2xl '>
         <Title text1={'YOUR'} text2={'CART'} />

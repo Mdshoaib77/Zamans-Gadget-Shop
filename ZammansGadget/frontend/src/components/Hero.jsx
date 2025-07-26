@@ -25,7 +25,7 @@ const Hero = () => {
     <div className="flex flex-col w-full overflow-hidden bg-white">
       {/* Header Section */}
       <motion.div
-        className="flex flex-col w-full gap-4 p-4 lg:flex-row"
+        className="flex flex-col w-full gap-4 p-4 mt-20 lg:flex-row"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -74,7 +74,7 @@ const Hero = () => {
       </motion.div>
 
       {/* Online Support Section */}
-      <motion.div
+      {/* <motion.div
         className="flex flex-col items-center justify-center w-full px-4 py-12 mt-8 space-y-6 bg-gray-50"
         initial="hidden"
         animate="visible"
@@ -101,7 +101,7 @@ const Hero = () => {
             <FaWhatsapp size={20} />
           </a>
         </div>
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };

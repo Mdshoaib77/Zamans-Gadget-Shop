@@ -83,7 +83,7 @@ const Collection = () => {
   }, [sortType]);
 
   return (
-    <div className="px-4 pt-10 sm:px-6 lg:px-8 max-w-[1300px] mx-auto">
+    <div className="px-4 pt-10 mt-14 sm:px-6 lg:px-8 max-w-[1300px] mx-auto">
       {/* Category Selection */}
       <div className="flex flex-wrap justify-center gap-3 py-1 mb-6 sm:justify-start">
         {activeCategory === "Official Phones" ? (

@@ -17,7 +17,7 @@ import { assets } from '../assets/assets';
 const Navbar = ({ setToken }) => {
   return (
     <div className='flex items-center py-2 px-[4%] justify-between'>
-      {/* Logo এর জায়গায় টেক্সট যুক্ত করা হয়েছে */}
+      {/* Logo text*/}
       <div className='flex items-center space-x-2'>
         <h1 className='text-2xl font-semibold text-gray-800'>
           Md <span className='text-indigo-600'>Raifuzzaman</span>

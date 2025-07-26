@@ -13,7 +13,7 @@ const Home = () => {
       <FeaturedCategories />
       <LatestCollection />
       <FeaturedProducts /> {/* ✅ Replaced BestSeller with tab-based FeaturedProducts */}
-      <OurPolicy />
+      {/* <OurPolicy /> */}
       <NewsletterBox />
     </div>
   );
