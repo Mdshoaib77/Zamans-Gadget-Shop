@@ -25,7 +25,7 @@ const Hero = () => {
     <div className="flex flex-col w-full overflow-hidden bg-white">
       {/* Header Section */}
       <motion.div
-        className="flex flex-col w-full gap-4 p-4 mt-20 lg:flex-row"
+        className="flex flex-col w-full gap-4 px-0 mt-20 lg:flex-row"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
