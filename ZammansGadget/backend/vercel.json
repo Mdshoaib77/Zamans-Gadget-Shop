@@ -164,28 +164,50 @@
 //   ]
 // }
 
+// {
+//   "version": 2,
+//   "builds": [
+//     {
+//       "src": "ZammansGadget/backend/server.js",
+//       "use": "@vercel/node",
+//       "config": {
+//         "includeFiles": [
+//           "ZammansGadget/frontend/dist/**",
+//           "ZammansGadget/backend/config/**",
+//           "ZammansGadget/backend/routes/**"
+//         ]
+//       }
+//     }
+//   ],
+//   "routes": [
+//     {
+//       "handle": "filesystem"
+//     },
+//     {
+//       "src": "/(.*)",
+//       "dest": "ZammansGadget/backend/server.js"
+//     }
+//   ]
+// }
+
+
 {
   "version": 2,
   "builds": [
     {
-      "src": "ZammansGadget/backend/server.js",
+      "src": "backend/server.js",
       "use": "@vercel/node",
       "config": {
         "includeFiles": [
-          "ZammansGadget/frontend/dist/**",
-          "ZammansGadget/backend/config/**",
-          "ZammansGadget/backend/routes/**"
+          "frontend/dist/**",
+          "backend/config/**",
+          "backend/routes/**"
         ]
       }
     }
   ],
   "routes": [
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "ZammansGadget/backend/server.js"
-    }
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "backend/server.js" }
   ]
 }
