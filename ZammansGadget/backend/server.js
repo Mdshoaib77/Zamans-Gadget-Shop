@@ -267,6 +267,54 @@
 
 // export default app;
 
+// import express from 'express';
+// import cors from 'cors';
+// import 'dotenv/config';
+// import path from 'path';
+// import { fileURLToPath } from 'url';
+
+// import connectDB from './config/mongodb.js';
+// import connectCloudinary from './config/cloudinary.js';
+// import userRouter from './routes/userRoute.js';
+// import productRouter from './routes/productRoute.js';
+// import cartRouter from './routes/cartRoute.js';
+// import orderRouter from './routes/orderRoute.js';
+
+// const app = express();
+// const port = process.env.PORT || 4000;
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
+
+// // Connect to Database & Cloudinary
+// connectDB();
+// connectCloudinary();
+
+// // Middlewares
+// app.use(express.json());
+// app.use(cors());
+
+// // API Routes
+// app.use('/api/user', userRouter);
+// app.use('/api/product', productRouter);
+// app.use('/api/cart', cartRouter);
+// app.use('/api/order', orderRouter);
+
+// // Serve static files from frontend/dist/
+// app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+// // Fallback route (SPA fix)
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+// });
+
+// // Start server
+// app.listen(port, () => {
+//   console.log(`Server started on PORT : ${port}`);
+// });
+
+// export default app;
+
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
@@ -301,11 +349,12 @@ app.use('/api/cart', cartRouter);
 app.use('/api/order', orderRouter);
 
 // Serve static files from frontend/dist/
-app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+// NOTE the '..' to go up from backend folder to root, then into frontend/dist
+app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
 
 // Fallback route (SPA fix)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
 });
 
 // Start server

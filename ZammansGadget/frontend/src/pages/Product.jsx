@@ -69,7 +69,7 @@ const Product = () => {
   if (!productData) return <div className='opacity-0'></div>;
 
   return (
-    <div className="pt-10 border-t-2 px-4 sm:px-8 md:px-16 max-w-[1200px] mx-auto">
+    <div className="pt-10 mt-16 border-t-2 px-4 sm:px-8 md:px-16 max-w-[1200px] mx-auto">
       <ToastContainer />
 
       <div className="flex flex-col gap-10 sm:flex-row sm:gap-16">
