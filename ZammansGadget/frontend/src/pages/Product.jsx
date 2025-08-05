@@ -4441,7 +4441,7 @@ const Product = () => {
           </p>
           <p>
             E-commerce websites typically display products or services along with detailed
-            descriptions, images, prices, and any available variations (e.g., sizes, colors).
+            descriptions, images, prices, and any available variations (e.g., variants, colors).
           </p>
         </div>
       </div>
