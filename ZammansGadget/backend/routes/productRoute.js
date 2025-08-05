@@ -53,6 +53,56 @@
 // export default productRouter;
 
 
+// import express from 'express';
+// import { 
+//   listProducts, 
+//   addProduct, 
+//   removeProduct, 
+//   singleProduct,
+//   getCategories,
+//   getProductsByCategory,
+//   getFeaturedProducts
+// } from '../controllers/productController.js';
+// import upload from '../middleware/multer.js';
+// import adminAuth from '../middleware/adminAuth.js';
+
+// const productRouter = express.Router();
+
+// // Route to add a new product
+// productRouter.post(
+//   '/add',
+//   adminAuth, // Admin authentication middleware
+//   upload.fields([
+//     { name: 'image1', maxCount: 1 }, // Image 1
+//     { name: 'image2', maxCount: 1 }, // Image 2
+//     { name: 'image3', maxCount: 1 }, // Image 3
+//     { name: 'image4', maxCount: 1 }  // Image 4
+//   ]),
+//   addProduct // Controller for adding the product
+// );
+
+// // Route to remove a product
+// productRouter.post('/remove', adminAuth, removeProduct);
+
+// // Route to fetch a single product by its ID
+// productRouter.post('/single', singleProduct);
+
+// // Route to list all products
+// productRouter.get('/list', listProducts);
+
+// // New route to fetch the fixed product categories
+// productRouter.get('/categories', getCategories);
+
+// // Route to get products filtered by category, expects query parameters ?category=<CategoryName>&subCategory=<SubCategoryName>
+// productRouter.get('/category-products', getProductsByCategory);
+
+// // Route to get the featured (bestseller) products
+// productRouter.get('/featured', getFeaturedProducts);
+
+// export default productRouter;
+
+
+
 import express from 'express';
 import { 
   listProducts, 
@@ -63,7 +113,8 @@ import {
   getProductsByCategory,
   getFeaturedProducts
 } from '../controllers/productController.js';
-import upload from '../middleware/multer.js';
+
+import { productUpload } from '../middleware/multer.js'; // ✅ use this
 import adminAuth from '../middleware/adminAuth.js';
 
 const productRouter = express.Router();
@@ -71,14 +122,9 @@ const productRouter = express.Router();
 // Route to add a new product
 productRouter.post(
   '/add',
-  adminAuth, // Admin authentication middleware
-  upload.fields([
-    { name: 'image1', maxCount: 1 }, // Image 1
-    { name: 'image2', maxCount: 1 }, // Image 2
-    { name: 'image3', maxCount: 1 }, // Image 3
-    { name: 'image4', maxCount: 1 }  // Image 4
-  ]),
-  addProduct // Controller for adding the product
+  adminAuth,
+  productUpload, // ✅ simplified, already handles image1, image2, image3, image4
+  addProduct
 );
 
 // Route to remove a product
@@ -90,19 +136,16 @@ productRouter.post('/single', singleProduct);
 // Route to list all products
 productRouter.get('/list', listProducts);
 
-// New route to fetch the fixed product categories
+// Route to fetch fixed product categories
 productRouter.get('/categories', getCategories);
 
-// Route to get products filtered by category, expects query parameters ?category=<CategoryName>&subCategory=<SubCategoryName>
+// Route to get products by category/subcategory
 productRouter.get('/category-products', getProductsByCategory);
 
-// Route to get the featured (bestseller) products
+// Route to get bestseller/featured products
 productRouter.get('/featured', getFeaturedProducts);
 
 export default productRouter;
-
-
-
 
 
 
