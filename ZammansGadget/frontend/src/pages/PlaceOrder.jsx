@@ -954,6 +954,7 @@
 // export default PlaceOrder;
 
 
+
 import React, { useContext, useState } from 'react';
 import Title from '../components/Title';
 import CartTotal from '../components/CartTotal';
@@ -995,7 +996,7 @@ const PlaceOrder = () => {
               orderItems.push({
                 productId,
                 title: product.name,
-                image: product.images[0],
+                image: product.image && product.image.length > 0 ? product.image[0] : '',
                 variant: variantKey,
                 color: cartData.color || '',
                 price: cartData.price,
